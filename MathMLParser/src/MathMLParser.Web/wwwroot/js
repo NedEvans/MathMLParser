@@ -1,0 +1,60 @@
+MathMLParser/
+├── .devcontainer/
+│   ├── devcontainer.json
+│   └── Dockerfile
+├── src/
+│   ├── MathMLParser.Web/
+│   │   ├── MathMLParser.Web.csproj
+│   │   ├── Program.cs
+│   │   ├── Components/
+│   │   │   ├── MathMLInput.razor
+│   │   │   ├── DynamicForm.razor
+│   │   │   ├── CalculationCard.razor
+│   │   │   ├── TaskContainer.razor
+│   │   │   ├── ProjectDashboard.razor
+│   │   │   ├── ProjectWorkspace.razor
+│   │   │   ├── TemplateLibrary.razor
+│   │   │   ├── TemplateBuilder.razor
+│   │   │   ├── EquationLibrary.razor
+│   │   │   ├── EquationSelector.razor
+│   │   │   └── ResultsDisplay.razor
+│   │   ├── Services/
+│   │   │   ├── MathMLParserService.cs
+│   │   │   ├── CalculationService.cs
+│   │   │   ├── UnitService.cs
+│   │   │   ├── EquationLibraryService.cs
+│   │   │   ├── ProjectService.cs
+│   │   │   ├── TaskService.cs
+│   │   │   ├── TemplateService.cs
+│   │   │   └── ValidationService.cs
+│   │   ├── Models/
+│   │   │   ├── ParsedEquation.cs
+│   │   │   ├── Variable.cs
+│   │   │   ├── CalculationResult.cs
+│   │   │   ├── EquationSummary.cs
+│   │   │   ├── ValidationResult.cs
+│   │   │   ├── Project.cs
+│   │   │   ├── Task.cs
+│   │   │   ├── TaskCard.cs
+│   │   │   ├── TaskTemplate.cs
+│   │   │   └── ProjectTemplate.cs
+│   │   ├── Data/
+│   │   │   ├── ApplicationDbContext.cs
+│   │   │   └── Migrations/
+│   │   ├── Pages/
+│   │   │   ├── Index.razor
+│   │   │   ├── Projects.razor
+│   │   │   ├── ProjectEditor.razor
+│   │   │   ├── Templates.razor
+│   │   │   ├── EquationManager.razor
+│   │   │   └── Calculator.razor
+│   │   ├── wwwroot/
+│   │   │   ├── css/
+│   │   │   ├── js/
+│   │   │   └── lib/temml/
+│   └── MathMLParser.Tests/
+│       ├── MathMLParser.Tests.csproj
+│       ├── ParserTests.cs
+│       ├── CalculationTests.cs
+├── README.md
+└── MathMLParser.sln

@@ -1,0 +1,12 @@
+MathMLParser/
+├── .devcontainer/
+│   ├── devcontainer.json
+│   └── Dockerfile
+├── src/
+│   ├── MathMLParser.Web/
+│   │   ├── MathMLParser.Web.csproj
+│   │   └── (other folders and files as specified in the PRD)
+│   └── MathMLParser.Tests/
+│       └── MathMLParser.Tests.csproj
+├── README.md
+└── MathMLParser.sln
