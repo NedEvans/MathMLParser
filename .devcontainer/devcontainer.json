@@ -1,8 +1,10 @@
 {
     "name": "MathML Parser Dev Environment",
     "build": {
-        "dockerfile": "Dockerfile"
+        "dockerfile": "Dockerfile",
+        "context": ".."
     },
+    "workspaceFolder": "/workspaces/MathMLParser",
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {},
         "ghcr.io/devcontainers/features/dotnet:2": {
@@ -13,15 +15,22 @@
         "vscode": {
             "extensions": [
                 "ms-dotnettools.csharp",
+                "ms-dotnettools.csdevkit",
                 "ms-dotnettools.vscode-dotnet-runtime",
                 "ms-vscode.vscode-json",
-                "ms-vscode.vscode-typescript-next",
                 "bradlc.vscode-tailwindcss",
                 "formulahendry.auto-rename-tag",
                 "christian-kohler.path-intellisense"
-            ]
+            ],
+            "settings": {
+                "dotnet.defaultSolution": "MathMLParser.sln",
+                "omnisharp.defaultLaunchSolution": "MathMLParser.sln"
+            }
         }
     },
-    "postCreateCommand": "dotnet restore",
-    "remoteUser": "root"
+    "postCreateCommand": "dotnet restore MathMLParser.sln && dotnet build MathMLParser.sln",
+    "remoteUser": "vscode",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspaces/MathMLParser,type=bind,consistency=cached"
+    ]
 }

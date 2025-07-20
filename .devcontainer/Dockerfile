@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
-WORKDIR /workspace
+WORKDIR /workspaces/MathMLParser
 
 # Install .NET tools
 RUN dotnet tool install --global dotnet-ef
@@ -22,12 +22,10 @@ RUN dotnet tool install --global dotnet-format
 
 ENV PATH="${PATH}:/root/.dotnet/tools"
 
+# Pre-restore NuGet packages for faster container startup
+COPY MathMLParser/src/MathMLParser.Web/MathMLParser.Web.csproj /workspaces/MathMLParser/MathMLParser/src/MathMLParser.Web/
+COPY MathMLParser/src/MathMLParser.Tests/MathMLParser.Tests.csproj /workspaces/MathMLParser/MathMLParser/src/MathMLParser.Tests/
+COPY MathMLParser.sln /workspaces/MathMLParser/
+RUN dotnet restore
 
-# Pre-restore NuGet packages
-#COPY MathMLParser/src/MathMLParser.Web/MathMLParser.Web.csproj /workspace/src/MathMLParser.Web/
-#COPY MathMLParser/src/MathMLParser.Tests/MathMLParser.Tests.csproj /workspace/src/MathMLParser.Tests/
-#COPY MathMLParser.sln /workspace/
-#RUN dotnet restore
-
-# Copy project files
-#COPY . /workspace/
+# Note: Actual project files will be mounted as volume in devcontainer
